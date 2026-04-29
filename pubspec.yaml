@@ -1,0 +1,45 @@
+name: dermatologist_assist
+description: Blur-Robust Mobile Melanoma Screening
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  camera: ^0.12.0
+  image_picker: ^1.1.2
+  shared_preferences: ^2.3.2
+  google_fonts: ^8.0.2
+  flutter_svg: ^2.0.9
+  provider: ^6.1.2
+  permission_handler: ^11.3.0
+  image: ^4.1.4
+  sqflite: ^2.3.0
+  path_provider: ^2.1.1
+  fl_chart: ^1.2.0
+  intl: ^0.20.2
+  http: ^1.6.0
+  google_generative_ai: ^0.4.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  min_sdk_android: 21
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/splash_skin.jpg
+    - assets/images/logo_melanoma.png
+    - assets/images/app_icon.png
