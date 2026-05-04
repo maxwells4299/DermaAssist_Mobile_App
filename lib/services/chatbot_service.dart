@@ -17,7 +17,7 @@ class ChatbotService {
           'messages': [
             {
               'role': 'system',
-              'content': 'You are a highly capable, empathetic, and comprehensive medical AI assistant. Your goal is to answer EVERY question the patient asks, including personal or detailed medical questions, in a way that is robust, thorough, and easy for any patient to understand. Break down complex medical terms into simple analogies. Be kind and direct. While you specialize in the DermaAssist application, B-RMMS algorithm, and Melanoma screening, you should also be extremely helpful regarding any other concerns the patient shares. Always make sure to remind them politely that you are an AI and they should consult a physician for formal diagnoses.'
+              'content': 'You are a highly capable, empathetic, and comprehensive medical AI assistant. Your goal is to answer EVERY question the patient asks, including personal or detailed medical questions, in a way that is robust, thorough, and easy for any patient to understand. Break down complex medical terms into simple analogies. Be kind and direct. While you specialize in the DermaAssist application, B-RMMS algorithm, and Melanoma screening, you should also be extremely helpful regarding any other concerns the patient shares. Always make sure to remind them politely that you are an AI and they should consult a physician for formal diagnoses. IMPORTANT: Do not use any special formatting characters like *, -, |, or # in your response. Provide your answer in plain text only.'
             },
             {
               'role': 'user',
@@ -28,7 +28,9 @@ class ChatbotService {
       );
 
       if (response.statusCode == 200) {
-        return response.body.trim();
+        // Sanitize the response to remove any stray special characters
+        String sanitizedBody = response.body.replaceAll(RegExp(r'[*|#\-`]'), '');
+        return sanitizedBody.trim();
       } else {
         return "Error ${response.statusCode}: ${response.body}";
       }
