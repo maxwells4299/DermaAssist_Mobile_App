@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../services/auth_service.dart';
 import '../services/database_service.dart';
 import '../models/scan.dart';
+import '../services/ml_service.dart';
 import '../utils/glass_morphism.dart';
 import 'result_screen.dart';
 
@@ -264,7 +265,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (_) => ResultScreen(melanomaProbability: scan.probability),
+              builder: (_) => ResultScreen(result: MLResult(melanomaProbability: scan.probability, imagePath: '', inferenceTimeMs: 0)),
             ),
           );
         },

@@ -64,7 +64,7 @@ class _ResultScreenState extends State<ResultScreen> {
             ],
             stops: const [0.1, 0.4, 0.7, 0.85, 1.0],
           ),
-          blendMode: BlendMode.overlay,
+          backgroundBlendMode: BlendMode.overlay,
         ),
       ),
     );
@@ -73,8 +73,8 @@ class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final primaryColor = isDark ? Colors.white : Colors.grey[900];
-    final secondaryColor = isDark ? Colors.grey[300] : Colors.grey[700];
+    final primaryColor = isDark ? Colors.white : Colors.grey[900]!;
+    final secondaryColor = isDark ? Colors.grey[300]! : Colors.grey[700]!;
     final confidencePercent = (widget.result.melanomaProbability * 100).toInt();
 
     return Scaffold(
@@ -109,7 +109,10 @@ class _ResultScreenState extends State<ResultScreen> {
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              Image.file(File(widget.result.imagePath), fit: BoxFit.cover, height: 250, width: double.infinity),
+                              if (widget.result.imagePath.isNotEmpty)
+                                Image.file(File(widget.result.imagePath), fit: BoxFit.cover, height: 250, width: double.infinity)
+                              else
+                                Container(height: 250, color: Colors.grey[800], child: const Center(child: Icon(Icons.image_not_supported, size: 50, color: Colors.white54))),
                               
                               // Simulated Grad-CAM Heatmap overlay
                               if (widget.result.melanomaProbability >= 0.3)
