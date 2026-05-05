@@ -124,7 +124,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   child: Row(
                     children: [
                       const SizedBox(width: 16),
-                      SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.deepPurpleAccent)),
+                      SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Theme.of(context).colorScheme.primary)),
                       const SizedBox(width: 8),
                       Text("AI is typing...", style: TextStyle(color: isDark ? Colors.grey[400] : Colors.grey[600], fontSize: 12))
                     ]
@@ -148,8 +148,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                       ),
                     ),
                     Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.deepPurple,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
@@ -227,10 +227,10 @@ class _QuickButton extends StatelessWidget {
       child: GlassContainer(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.deepPurpleAccent.withValues(alpha: 0.5)),
+        border: Border.all(color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5)),
         child: Text(
           text, 
-          style: TextStyle(color: isDark ? Colors.white : Colors.deepPurple, fontSize: 13, fontWeight: FontWeight.w500)
+          style: TextStyle(color: isDark ? Colors.white : Theme.of(context).colorScheme.primary, fontSize: 13, fontWeight: FontWeight.w500)
         ),
       ),
     );

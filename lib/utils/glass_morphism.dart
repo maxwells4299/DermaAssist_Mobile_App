@@ -76,14 +76,14 @@ class GradientBackground extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: isDark
               ? [
-                  const Color(0xFF1E1E2C),
-                  const Color.fromARGB(255, 34, 15, 61), // Deep purple
-                  const Color(0xFF121212),
+                  const Color(0xFF0F172A), // Slate 900
+                  const Color(0xFF1E293B), // Slate 800
+                  const Color(0xFF020617), // Deepest Navy
                 ]
               : [
-                  const Color(0xFFE8EAF6), // soft indigo
-                  const Color(0xFFF3E5F5), // soft purple
-                  const Color(0xFFE3F2FD), // soft blue
+                  const Color(0xFFF8FAFC), // Slate 50
+                  const Color(0xFFF1F5F9), // Slate 100
+                  const Color(0xFFE2E8F0), // Slate 200
                 ],
           stops: const [0.0, 0.5, 1.0],
         ),

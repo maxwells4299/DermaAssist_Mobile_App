@@ -204,14 +204,14 @@ class _ResultScreenState extends State<ResultScreen> {
                       final query = "My scan says $confidencePercent% confidence of being ${widget.result.melanomaProbability >= 0.5 ? 'melanoma' : 'benign'}. What does this mean?";
                       Navigator.push(context, MaterialPageRoute(builder: (_) => ChatbotScreen(initialQuery: query)));
                     },
-                    icon: const Icon(Icons.chat_bubble, color: Colors.deepPurple),
-                    label: const Text('Discuss with AI Assistant', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.deepPurple)),
+                    icon: Icon(Icons.chat_bubble, color: Theme.of(context).colorScheme.primary),
+                    label: Text('Discuss with AI Assistant', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary)),
                     style: ElevatedButton.styleFrom(
                        backgroundColor: Colors.white,
                        padding: const EdgeInsets.symmetric(vertical: 18),
                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                        elevation: 8,
-                       shadowColor: Colors.deepPurple.withValues(alpha: 0.5),
+                       shadowColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -220,11 +220,11 @@ class _ResultScreenState extends State<ResultScreen> {
                       Navigator.popUntil(context, (route) => route.isFirst);
                     },
                     style: ElevatedButton.styleFrom(
-                       backgroundColor: Colors.deepPurple,
+                       backgroundColor: Theme.of(context).colorScheme.primary,
                        padding: const EdgeInsets.symmetric(vertical: 18),
                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                        elevation: 8,
-                       shadowColor: Colors.deepPurple.withValues(alpha: 0.5),
+                       shadowColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                     ),
                     child: const Text('Back to Scanner', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
                   ),

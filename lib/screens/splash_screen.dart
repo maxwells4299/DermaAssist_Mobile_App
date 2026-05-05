@@ -26,7 +26,7 @@ class SplashScreen extends StatelessWidget {
                     height: 150,
                     width: 150,
                     errorBuilder: (context, error, stackTrace) =>
-                        const Icon(Icons.health_and_safety, size: 100, color: Colors.deepPurple),
+                        Icon(Icons.health_and_safety, size: 100, color: Theme.of(context).colorScheme.primary),
                   ),
                   const SizedBox(height: 32),
                   Text(
@@ -54,13 +54,13 @@ class SplashScreen extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       minimumSize: const Size(double.infinity, 56),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                       elevation: 5,
-                      shadowColor: Colors.deepPurple.withValues(alpha: 0.5),
+                      shadowColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                     ),
                     child: const Text('Get Started',
                         style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold)),

@@ -33,14 +33,20 @@ class MelanomaApp extends StatelessWidget {
             theme: ThemeData(
               brightness: Brightness.light,
               fontFamily: GoogleFonts.inter().fontFamily,
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color(0xFF2563EB),
+                primary: const Color(0xFF2563EB),
+              ),
               useMaterial3: true,
             ),
             darkTheme: ThemeData(
               brightness: Brightness.dark,
               fontFamily: GoogleFonts.inter().fontFamily,
               colorScheme: ColorScheme.fromSeed(
-                  seedColor: Colors.deepPurple, brightness: Brightness.dark),
+                seedColor: const Color(0xFF60A5FA),
+                primary: const Color(0xFF60A5FA),
+                brightness: Brightness.dark,
+              ),
               useMaterial3: true,
             ),
             themeMode: themeProvider.currentTheme,

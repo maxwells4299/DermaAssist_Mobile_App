@@ -23,18 +23,18 @@ class OnboardingScreen extends StatelessWidget {
                     width: 140,
                     height: 140,
                     decoration: BoxDecoration(
-                      color: Colors.deepPurple.withValues(alpha: 0.15),
+                      color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.15),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.deepPurple.withValues(alpha: 0.3),
+                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
                           blurRadius: 30,
                           spreadRadius: 5,
                         ),
                       ],
                     ),
-                    child: const Center(
-                      child: Icon(Icons.analytics, size: 60, color: Colors.deepPurpleAccent),
+                    child: Center(
+                      child: Icon(Icons.analytics, size: 60, color: Theme.of(context).colorScheme.primary),
                     ),
                   ),
                 ),
@@ -99,12 +99,12 @@ class OnboardingScreen extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (_) => const SignUpScreen())),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.deepPurple,
+                                backgroundColor: Theme.of(context).colorScheme.primary,
                                 padding: const EdgeInsets.symmetric(vertical: 16),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16)),
                                 elevation: 8,
-                                shadowColor: Colors.deepPurple.withValues(alpha: 0.5),
+                                shadowColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                               ),
                               child: const Text('Continue to Sign Up',
                                   style: TextStyle(
@@ -153,10 +153,10 @@ class OnboardingScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: isDark
               ? Colors.white.withValues(alpha: 0.05)
-              : Colors.deepPurple.withValues(alpha: 0.05),
+              : Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-              color: isDark ? Colors.white12 : Colors.deepPurple.withValues(alpha: 0.2)),
+              color: isDark ? Colors.white12 : Theme.of(context).colorScheme.primary.withValues(alpha: 0.2)),
         ),
         child: Column(
           children: [
@@ -164,7 +164,7 @@ class OnboardingScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: isDark ? Colors.deepPurpleAccent : Colors.deepPurple)),
+                    color: Theme.of(context).colorScheme.primary)),
             const SizedBox(height: 8),
             Text(title,
                 style: TextStyle(

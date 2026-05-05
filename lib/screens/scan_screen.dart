@@ -167,9 +167,9 @@ class _ScanScreenState extends State<ScanScreen> {
                               width: double.infinity,
                               height: 250,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.deepPurple.withValues(alpha: 0.3), width: 2, style: BorderStyle.solid),
+                                border: Border.all(color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3), width: 2, style: BorderStyle.solid),
                                 borderRadius: BorderRadius.circular(16),
-                                color: Colors.deepPurple.withValues(alpha: 0.05),
+                                color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
                               ),
                               child: Center(child: Text('Place lesion here', style: TextStyle(color: secondaryColor))),
                             ),
@@ -210,10 +210,10 @@ class _ScanScreenState extends State<ScanScreen> {
                           Expanded(
                             child: OutlinedButton.icon(
                               onPressed: _pickImageFromGallery,
-                              icon: const Icon(Icons.photo_library, color: Colors.deepPurpleAccent),
-                              label: const Text('Gallery', style: TextStyle(color: Colors.deepPurpleAccent)),
+                              icon: Icon(Icons.photo_library, color: Theme.of(context).colorScheme.primary),
+                              label: Text('Gallery', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
                               style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Colors.deepPurpleAccent),
+                                side: BorderSide(color: Theme.of(context).colorScheme.primary),
                                 padding: const EdgeInsets.symmetric(vertical: 12),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               ),
@@ -232,7 +232,7 @@ class _ScanScreenState extends State<ScanScreen> {
                               icon: Icon(_uploadedImage != null ? Icons.refresh : Icons.camera_alt, color: Colors.white),
                               label: Text(_uploadedImage != null ? 'Retake' : 'Capture', style: const TextStyle(color: Colors.white)),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.deepPurple,
+                                backgroundColor: Theme.of(context).colorScheme.primary,
                                 padding: const EdgeInsets.symmetric(vertical: 12),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               ),
@@ -312,8 +312,8 @@ class _ScanScreenState extends State<ScanScreen> {
                               Switch(
                                  value: _blurEnabled,
                                  onChanged: _toggleBlur,
-                                 activeColor: Colors.deepPurple,
-                                 activeTrackColor: Colors.deepPurple.withValues(alpha: 0.5),
+                                 activeColor: Theme.of(context).colorScheme.primary,
+                                 activeTrackColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                               ),
                            ],
                         ),

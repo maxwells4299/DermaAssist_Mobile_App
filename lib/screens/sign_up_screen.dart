@@ -68,7 +68,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Icon(Icons.person_add_alt_1, size: 60, color: Colors.deepPurpleAccent),
+                      Icon(Icons.person_add_alt_1, size: 60, color: Theme.of(context).colorScheme.primary),
                       const SizedBox(height: 16),
                       Text(
                         'Create Account',
@@ -93,11 +93,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ElevatedButton(
                         onPressed: _isLoading ? null : _handleSignUp,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepPurple,
+                          backgroundColor: Theme.of(context).colorScheme.primary,
                           padding: const EdgeInsets.symmetric(vertical: 18),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                           elevation: 5,
-                          shadowColor: Colors.deepPurple.withValues(alpha: 0.5),
+                          shadowColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                         ),
                         child: _isLoading
                           ? const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 3))
@@ -113,7 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             children: [
                               TextSpan(
                                 text: 'Sign In',
-                                style: const TextStyle(color: Colors.deepPurpleAccent, fontWeight: FontWeight.bold),
+                                 style: const TextStyle(color: Color(0xFF60A5FA), fontWeight: FontWeight.bold),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const SignInScreen())),
                               ),
@@ -140,7 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: InputDecoration(
         labelText: label,
         labelStyle: TextStyle(color: isDark ? Colors.grey[400] : Colors.grey[600]),
-        prefixIcon: Icon(icon, color: Colors.deepPurpleAccent),
+        prefixIcon: Icon(icon, color: Theme.of(context).colorScheme.primary),
         filled: true,
         fillColor: (isDark ? Colors.black : Colors.white).withValues(alpha: 0.2),
         border: OutlineInputBorder(
@@ -153,7 +153,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Colors.deepPurpleAccent, width: 2),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2),
         ),
       ),
     );
