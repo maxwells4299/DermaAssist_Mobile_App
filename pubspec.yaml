@@ -22,7 +22,7 @@ dependencies:
   fl_chart: ^1.2.0
   intl: ^0.20.2
   http: ^1.6.0
-  google_generative_ai: ^0.4.7
+  tflite_flutter: ^0.12.0
 
 dev_dependencies:
   flutter_test:
@@ -43,3 +43,4 @@ flutter:
     - assets/images/splash_skin.jpg
     - assets/images/logo_melanoma.png
     - assets/images/app_icon.png
+    - assets/models/brmms_refined_quant.tflite

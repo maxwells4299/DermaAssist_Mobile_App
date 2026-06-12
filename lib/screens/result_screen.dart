@@ -194,6 +194,17 @@ class _ResultScreenState extends State<ResultScreen> {
                         _resultRow('Confidence Score', '$confidencePercent%', primaryColor),
                         const Padding(padding: EdgeInsets.symmetric(vertical: 8), child: Divider(color: Colors.white24)),
                         _resultRow('On-Device Inference', '${widget.result.inferenceTimeMs} ms', Colors.greenAccent[400]!),
+                        if (widget.result.probabilities != null && widget.result.probabilities!.length >= 3) ...[
+                          const Padding(padding: EdgeInsets.symmetric(vertical: 8), child: Divider(color: Colors.white24)),
+                          const SizedBox(height: 8),
+                          Text('Class Distribution', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: primaryColor)),
+                          const SizedBox(height: 12),
+                          _buildClassProbabilityBar('Melanoma (Malignant)', widget.result.probabilities![0], Colors.redAccent, primaryColor),
+                          const SizedBox(height: 8),
+                          _buildClassProbabilityBar('Nevus (Benign)', widget.result.probabilities![1], Colors.greenAccent, primaryColor),
+                          const SizedBox(height: 8),
+                          _buildClassProbabilityBar('Non skin', widget.result.probabilities![2], Colors.orangeAccent, primaryColor),
+                        ],
                       ],
                     ),
                   ),
@@ -248,6 +259,31 @@ class _ResultScreenState extends State<ResultScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildClassProbabilityBar(String label, double probability, Color barColor, Color textColor) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(label, style: TextStyle(fontSize: 14, color: textColor)),
+            Text('${(probability * 100).toStringAsFixed(1)}%', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: barColor)),
+          ],
+        ),
+        const SizedBox(height: 4),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(4),
+          child: LinearProgressIndicator(
+            value: probability,
+            color: barColor,
+            backgroundColor: Colors.white12,
+            minHeight: 8,
+          ),
+        ),
+      ],
     );
   }
 

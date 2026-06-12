@@ -312,7 +312,7 @@ class _ScanScreenState extends State<ScanScreen> {
                               Switch(
                                  value: _blurEnabled,
                                  onChanged: _toggleBlur,
-                                 activeColor: Theme.of(context).colorScheme.primary,
+                                 activeThumbColor: Theme.of(context).colorScheme.primary,
                                  activeTrackColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                               ),
                            ],
